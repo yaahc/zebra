@@ -1,5 +1,5 @@
   ┌───────────┐     ┌───────────┐     ┌───────────┐     ┌───────────┐
-  │PeerServer │     │PeerServer │     │PeerServer │     │PeerServer │
+  │Connection │     │Connection │     │Connection │     │Connection │
   │ ┌───────┐ │     │ ┌───────┐ │     │ ┌───────┐ │     │ ┌───────┐ │
   │ │┌─────┐│ │     │ │┌─────┐│ │     │ │┌─────┐│ │     │ │┌─────┐│ │
   │ ││ Tcp ││ │     │ ││ Tcp ││ │     │ ││ Tcp ││ │     │ ││ Tcp ││ │
@@ -24,11 +24,11 @@
  ┌──────╋─────────────────╋─────────────────╋─────────────────╋──────┐  ┃     │
  │      ┃                 ┃                 ┃                 ┃      │  ┃     │
  │┌───────────┐     ┌───────────┐     ┌───────────┐     ┌───────────┐│  ┃     │
- ││PeerClient │     │PeerClient │     │PeerClient │     │PeerClient ││  ┃     │
+ ││  Client   │     │  Client   │     │  Client   │     │  Client   ││  ┃     │
  │└───────────┘     └───────────┘     └───────────┘     └───────────┘│  ┃     │
  │                                                                   │  ┃     │
  │┌──────┐      ┌──────────────┐                                     │  ┃     │
- ││ load │      │peer discovery│                              PeerSet│  ┃     │
+ ││ load │      │peer discovery│                       ConnectionPool│  ┃     │
  ││signal│   ┏━▶│   receiver   │          req: Request, rsp: Response│  ┃     │
  │└──────┘   ┃  └──────────────┘         routes all outgoing requests│  ┃     │
  │    ┃      ┃                               adds peers via discovery│  ┃     │
