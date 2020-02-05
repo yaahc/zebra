@@ -7,6 +7,7 @@ use std::{
 use proptest::{array, collection::vec, prelude::*};
 #[cfg(test)]
 use proptest_derive::Arbitrary;
+use serde::{Deserialize, Serialize};
 
 use crate::{
     proofs::ZkSnarkProof,
@@ -16,7 +17,7 @@ use crate::{
 /// A _JoinSplit Description_, as described in [protocol specification §7.2][ps].
 ///
 /// [ps]: https://zips.z.cash/protocol/protocol.pdf#joinsplitencoding
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(test, derive(Arbitrary))]
 pub struct JoinSplit<P: ZkSnarkProof> {
     /// A value that the JoinSplit transfer removes from the transparent value
@@ -63,7 +64,7 @@ pub struct JoinSplit<P: ZkSnarkProof> {
 }
 
 /// A bundle of JoinSplit descriptions and signature data.
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct JoinSplitData<P: ZkSnarkProof> {
     /// The first JoinSplit description, using proofs of type `P`.
     ///
