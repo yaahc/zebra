@@ -125,6 +125,7 @@ where
         let _ = demand_tx.try_send(());
     }
 
+    /*
     tokio::spawn(
         crawl_and_dial(
             config.new_peer_interval,
@@ -140,6 +141,7 @@ where
             }
         }),
     );
+    */
 
     (peer_set, address_book)
 }

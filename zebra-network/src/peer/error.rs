@@ -51,7 +51,7 @@ pub enum PeerError {
     Rejected,
     /// The remote peer responded with a block we didn't ask for.
     #[error("Remote peer responded with a block we didn't ask for.")]
-    WrongBlock,
+    WrongBlock(zebra_chain::block::Block),
 }
 
 #[derive(Default, Clone)]

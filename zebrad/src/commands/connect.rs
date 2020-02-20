@@ -127,6 +127,10 @@ impl ConnectCmd {
                 match block_requests.next().await {
                     Some(Ok(Response::Blocks(blocks))) => {
                         for block in &blocks {
+                            metrics::counter!(
+                                "downloaded_blocks",
+                                1,
+                            );
                             downloaded_block_heights.insert(block.coinbase_height().unwrap());
                         }
                     }

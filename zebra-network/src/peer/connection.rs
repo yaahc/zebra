@@ -79,7 +79,7 @@ impl Handler {
                         GetBlocksByHash { hashes, blocks }
                     }
                 } else {
-                    Finished(Err(Arc::new(PeerError::WrongBlock).into()))
+                    Finished(Err(Arc::new(PeerError::WrongBlock(*block)).into()))
                 }
             }
             (FindBlocks, Message::Inv(inv_hashes)) => Finished(Ok(Response::BlockHeaderHashes(
